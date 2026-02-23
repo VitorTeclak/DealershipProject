@@ -12,6 +12,9 @@ public class Person {
     private String email;
     private String telefone;
 
+    public Person() {
+    }
+
     public Person(String name, String cpf, String rg, LocalDate dataOfBirth, String address, String cep, String email, String telefone) {
         this.name = name;
         this.cpf = cpf;
@@ -47,7 +50,7 @@ public class Person {
         this.rg = rg;
     }
 
-    public LocalDate getDataOfBirth() {
+    public LocalDate getDataOfBirth () {
         return dataOfBirth;
     }
 
