@@ -1,6 +1,6 @@
 package Entities.enums;
 
-public enum AccessLevel {
+public enum JobTitle {
     SELLER,
     HR,
     MECHANIC,

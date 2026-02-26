@@ -1,16 +1,16 @@
-import Entities.Customer;
-import DAO.CustomerDAO;
 
-import java.util.List;
+import services.CustomerService;
+import services.EmployeeService;
+
+
 
 public class Main {
     public static void main(String[] args) {
-        CustomerDAO dao = new CustomerDAO();
+        CustomerService customerService = new CustomerService();
+        EmployeeService employeeService = new EmployeeService();
 
-        List<Customer> customers = dao.findAllCustomers();
 
-        for (Customer customer : customers) {
-            System.out.println(customer);
-        }
+//        customerService.printAllCustomers();
+        employeeService.printAllEmployee();
     }
 }

@@ -35,7 +35,6 @@ public class CustomerDAO {
         } catch (SQLException e) {
             throw new RuntimeException("error when searching for customers", e);
         }
-
         return customers;
     }
 }
