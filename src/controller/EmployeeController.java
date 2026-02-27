@@ -1,11 +1,11 @@
-package services;
+package controller;
 
 import DAO.EmployeeDAO;
 import Entities.Employee;
 
 import java.util.List;
 
-public class EmployeeService {
+public class EmployeeController {
     public void printAllEmployee() {
         EmployeeDAO dao = new EmployeeDAO();
 

@@ -1,16 +1,22 @@
 
-import services.CustomerService;
-import services.EmployeeService;
-
+import controller.CustomerController;
+import controller.EmployeeController;
+import controller.RentalController;
+import controller.VehicleController;
 
 
 public class Main {
     public static void main(String[] args) {
-        CustomerService customerService = new CustomerService();
-        EmployeeService employeeService = new EmployeeService();
+        CustomerController customerController = new CustomerController();
+        EmployeeController employeeController = new EmployeeController();
+        VehicleController vehicleController = new VehicleController();
+        RentalController rentalController = new RentalController();
 
 
 //        customerService.printAllCustomers();
-        employeeService.printAllEmployee();
+//        employeeController.printAllEmployee();
+//        vehicleController.printAllVehicles();
+        rentalController.printAllRentals();
     }
+
 }

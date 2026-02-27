@@ -132,3 +132,15 @@ VALUES
 (8,9,5,'2026-03-10','2026-03-18',1700.00),
 (9,3,7,'2026-03-12','2026-03-20',2100.00),
 (10,4,9,'2026-03-15','2026-03-22',1250.00);
+
+CREATE VIEW vw_contracts_details AS
+SELECT
+    c.contract_id,
+    cust.name AS customer_name,
+    emp.name AS employee_name,
+    v.model AS vehicle_name,
+    c.date_of_collect
+FROM contracts c
+JOIN customer cust ON c.customer_id = cust.customer_id
+JOIN employee emp ON c.employee_id = emp.employee_id
+JOIN vehicle v ON c.vehicle_id = v.vehicle_id;

@@ -1,11 +1,11 @@
-package services;
+package controller;
 
 import DAO.CustomerDAO;
 import Entities.Customer;
 
 import java.util.List;
 
-public class CustomerService {
+public class CustomerController {
     public void printAllCustomers() {
         CustomerDAO dao = new CustomerDAO();
 
