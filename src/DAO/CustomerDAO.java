@@ -1,5 +1,7 @@
 package DAO;
 
+
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import Entities.Customer;
@@ -36,6 +38,50 @@ public class CustomerDAO {
             throw new RuntimeException("error when searching for customers", e);
         }
         return customers;
+    }
+    public void addNewCustomer (String name, String cpf, String rg, LocalDate dateOfBirth, String address, String cep, String email, String telefone) {
+            String sql = "INSERT INTO customer (name, cpf, rg, date_of_birth, address, cep, email, telefone) "
+                    + "values (?, ?, ?, ?, ?, ?, ?, ?)";
+
+        try (Connection conn = DB.getConnection();
+             PreparedStatement st = conn.prepareStatement(sql)) {
+
+            st.setString(1, name);
+            st.setString(2, cpf);
+            st.setString(3, rg);
+            st.setDate(4, Date.valueOf(dateOfBirth));
+            st.setString(5, address);
+            st.setString(6, cep);
+            st.setString(7, email);
+            st.setString(8, telefone);
+
+            int rowsAffected = st.executeUpdate();
+
+            if (rowsAffected > 0) {
+                System.out.println("Customer added successfully !");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public void removeCustomer(String customerId) {
+
+        String sql = "DELETE FROM customer where customer_id = ?";
+
+
+        try (Connection conn = DB.getConnection();
+             PreparedStatement st = conn.prepareStatement(sql)){
+
+            st.setString(1, customerId);
+
+            int rowsAffected = st.executeUpdate();
+
+            if (rowsAffected > 0) {
+                System.out.println("Customer removed successfully !");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
 
