@@ -83,6 +83,22 @@ public class CustomerDAO {
             throw new RuntimeException(e);
         }
     }
+    public void editCustomer(String column, String newValue, String customerId) {
+        String sql = "UPDATE customer SET " + column + " = ? WHERE customer_id = ?";
+        try (Connection conn = DB.getConnection();
+             PreparedStatement st = conn.prepareStatement(sql)) {
+            st.setString(1, newValue);
+            st.setString(2, customerId);
+
+            int rowsAffected = st.executeUpdate();
+
+            if (rowsAffected > 0) {
+                System.out.println("Customer edited successfully !");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
 
 

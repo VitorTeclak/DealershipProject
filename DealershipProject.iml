@@ -7,10 +7,40 @@
     </content>
     <orderEntry type="jdk" jdkName="openjdk-24" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library" exported="">
+    <orderEntry type="module-library">
       <library>
         <CLASSES>
           <root url="jar://C:/java-libs/jdbc-connectors/mysql-connector-j-9.5.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://C:/java-libs/jdbc-connectors/mysql-connector-j-9.6.0" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://C:/java-libs/jdbc-connectors/mysql-connector-j-9.6.0/src/build/java" />
+          <root url="file://C:/java-libs/jdbc-connectors/mysql-connector-j-9.6.0/src/demo/java" />
+          <root url="file://C:/java-libs/jdbc-connectors/mysql-connector-j-9.6.0/src/generated/java" />
+          <root url="file://C:/java-libs/jdbc-connectors/mysql-connector-j-9.6.0/src/legacy/java" />
+          <root url="file://C:/java-libs/jdbc-connectors/mysql-connector-j-9.6.0/src/main/core-api/java" />
+          <root url="file://C:/java-libs/jdbc-connectors/mysql-connector-j-9.6.0/src/main/core-impl/java" />
+          <root url="file://C:/java-libs/jdbc-connectors/mysql-connector-j-9.6.0/src/main/protocol-impl/java" />
+          <root url="file://C:/java-libs/jdbc-connectors/mysql-connector-j-9.6.0/src/main/user-api/java" />
+          <root url="file://C:/java-libs/jdbc-connectors/mysql-connector-j-9.6.0/src/main/user-impl/java" />
+          <root url="file://C:/java-libs/jdbc-connectors/mysql-connector-j-9.6.0/src/test/java" />
+        </SOURCES>
+        <jarDirectory url="file://C:/java-libs/jdbc-connectors/mysql-connector-j-9.6.0" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://C:/java-libs/jdbc-connectors/mysql-connector-j-9.6.0.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

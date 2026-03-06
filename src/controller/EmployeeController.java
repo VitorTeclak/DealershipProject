@@ -2,17 +2,53 @@ package controller;
 
 import DAO.EmployeeDAO;
 import Entities.Employee;
+import Entities.enums.JobTitle;
 
+import java.time.LocalDate;
 import java.util.List;
+import java.util.Scanner;
 
 public class EmployeeController {
+    EmployeeDAO dao = new EmployeeDAO();
     public void printAllEmployee() {
-        EmployeeDAO dao = new EmployeeDAO();
-
         List<Employee> employees= dao.findAllEmployees();
 
         for (Employee employee : employees) {
             System.out.println(employee);
         }
+    }
+    public void retrievesDataToInsertNewEmployee (Scanner sc) {
+
+        try {
+            System.out.println("Enter name of Employee: ");
+            String name = sc.nextLine();
+            System.out.println("Enter CPF: ");
+            String cpf = sc.nextLine();
+            String rg = sc.nextLine();
+            System.out.println("Enter date of birth (yyyy-mm-dd): ");
+            String date = sc.nextLine();
+            LocalDate dateOfBirth = LocalDate.parse(date);
+            System.out.println("Enter address: ");
+            String address = sc.nextLine();
+            System.out.println("Enter cep: ");
+            String cep = sc.nextLine();
+            System.out.println("Enter email:");
+            String email = sc.nextLine();
+            System.out.println("Enter telefone: ");
+            String telefone = sc.nextLine();
+            System.out.println("Enter Job title (SELLER, HR, MECHANIC, MANAGER): ");
+            JobTitle jobTitle = JobTitle.valueOf(sc.nextLine().toUpperCase());
+            String accessLevel = jobTitle.getAccessLevel();
+
+            dao.addNewEmployee(name, cpf, rg, dateOfBirth, address, cep, email, telefone, jobTitle, accessLevel);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public void getEmployeeIdToRemove (Scanner sc) {
+        printAllEmployee();
+        System.out.println("Enter employee ID to remove: ");
+        String employeeId = sc.nextLine();
+        dao.removeEmployee(employeeId);
     }
 }

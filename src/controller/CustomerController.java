@@ -51,5 +51,19 @@ public class CustomerController {
         String customerId = sc.nextLine();
         dao.removeCustomer(customerId);
     }
+    public void getDataToEditCustomer(Scanner sc) {
+        printAllCustomers();
+        System.out.println("Enter Customer ID to edit: ");
+        String customerId = sc.nextLine();
+        System.out.println("VALID COLUMNS");
+        System.out.println("NAME | CPF | RG | DATE OF BIRTH | ADDRESS | CEP | EMAIL | TELEFONE");
+        System.out.println("Enter the column you want to edit: ");
+        String column = sc.nextLine().toUpperCase();
+        System.out.println("Enter the new value");
+        String newValue = sc.nextLine();
+        System.out.println(column + newValue + customerId);
+
+        dao.editCustomer(column, newValue, customerId);
+    }
 
 }

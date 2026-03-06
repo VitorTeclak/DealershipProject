@@ -16,12 +16,15 @@ public class Main {
         RentalController rentalController = new RentalController();
 
 
-//        customerService.printAllCustomers();
+        customerController.printAllCustomers();
 //        employeeController.printAllEmployee();
 //        vehicleController.printAllVehicles();
 //        rentalController.printAllRentals();
 //        customerController.retrievesDataToInsertNewCustomer(sc);
-        customerController.getCustomerIdToRemove(sc);
+//        customerController.getCustomerIdToRemove(sc);
+//        employeeController.retrievesDataToInsertNewEmployee(sc);
+//        employeeController.getEmployeeIdToRemove(sc);
+//        customerController.getDataToEditCustomer(sc);
     }
 
 }
