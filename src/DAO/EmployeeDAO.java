@@ -89,4 +89,22 @@ public class EmployeeDAO {
             throw new RuntimeException(e);
         }
     }
+    public void editEmployee(String column, String newValue, String employeeId) {
+        String sql = "UPDATE employee SET " + column + " = ? WHERE employee_id = ?";
+
+        try (Connection conn = DB.getConnection();
+        PreparedStatement st = conn.prepareStatement(sql)) {
+            st.setString(1, newValue);
+            st.setString(2, employeeId);
+
+            int rowsAffected = st.executeUpdate();
+
+            if (rowsAffected > 0) {
+                System.out.println("Employee edited successfully !");
+            }
+        }
+        catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

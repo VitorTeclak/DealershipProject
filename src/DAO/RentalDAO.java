@@ -3,10 +3,9 @@ package DAO;
 import Entities.Rental;
 import db.DB;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.math.BigDecimal;
+import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,5 +37,48 @@ public class RentalDAO {
             throw new RuntimeException("Error when searching for rentals");
         }
         return rentals;
+    }
+    public void addNewRental (String customerId, String employeeId, String vehicleId, LocalDate dateOfCollect, LocalDate dateOfReturn, BigDecimal rentalValue) {
+        String sql = "INSERT INTO contracts (customer_id, employee_id, vehicle_id, date_of_collect, date_of_return, rental_value)"
+                + "VALUES (?,?,?,?,?,?)";
+
+        try (Connection conn = DB.getConnection();
+            PreparedStatement st = conn.prepareStatement(sql)) {
+
+            st.setString(1, customerId);
+            st.setString(2, employeeId);
+            st.setString(3, vehicleId);
+            st.setDate(4, Date.valueOf(dateOfCollect));
+            st.setDate(5, Date.valueOf(dateOfReturn));
+            st.setBigDecimal(6, rentalValue);
+
+            int rowsAffected = st.executeUpdate();
+
+            if (rowsAffected > 0) {
+                System.out.println("New contract successfully added !");
+            }
+        }
+        catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public void editRental (String column, String newValue, String contractId) {
+        String sql = "UPDATE contracts SET " + column +" = ? where contract_id = ?";
+
+        try (Connection conn = DB.getConnection();
+            PreparedStatement st = conn.prepareStatement(sql)) {
+
+            st.setString(1, newValue);
+            st.setString(2, contractId);
+
+            int rowsAffected = st.executeUpdate();
+
+            if (rowsAffected > 0) {
+                System.out.println("Contract edited successfully !");
+            }
+        }
+        catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

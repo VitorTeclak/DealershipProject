@@ -16,7 +16,7 @@ public class Main {
         RentalController rentalController = new RentalController();
 
 
-        customerController.printAllCustomers();
+//        customerController.printAllCustomers();
 //        employeeController.printAllEmployee();
 //        vehicleController.printAllVehicles();
 //        rentalController.printAllRentals();
@@ -25,6 +25,12 @@ public class Main {
 //        employeeController.retrievesDataToInsertNewEmployee(sc);
 //        employeeController.getEmployeeIdToRemove(sc);
 //        customerController.getDataToEditCustomer(sc);
+//        employeeController.getDataToEditEmployee(sc);
+//        vehicleController.retrievesDataToInsertNewVehicle(sc);
+//        vehicleController.getDataToEditVehicle(sc);
+//        vehicleController.getVehicleIdToRemove(sc);
+//        rentalController.retrievesDataToInsertNewContract(sc);
+
     }
 
 }
