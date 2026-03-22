@@ -3,6 +3,7 @@ package controller;
 import DAO.EmployeeDAO;
 import Entities.Employee;
 import Entities.enums.JobTitle;
+import service.EmployeeService;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -10,6 +11,9 @@ import java.util.Scanner;
 
 public class EmployeeController {
     EmployeeDAO dao = new EmployeeDAO();
+    EmployeeService employeeService = new EmployeeService();
+
+
     public void printAllEmployee() {
         List<Employee> employees= dao.findAllEmployees();
 
@@ -24,6 +28,8 @@ public class EmployeeController {
             String name = sc.nextLine();
             System.out.println("Enter CPF: ");
             String cpf = sc.nextLine();
+            employeeService.validateCpf(cpf);
+            System.out.println("Enter RG: ");
             String rg = sc.nextLine();
             System.out.println("Enter date of birth (yyyy-mm-dd): ");
             String date = sc.nextLine();
@@ -41,6 +47,9 @@ public class EmployeeController {
             String accessLevel = jobTitle.getAccessLevel();
 
             dao.addNewEmployee(name, cpf, rg, dateOfBirth, address, cep, email, telefone, jobTitle, accessLevel);
+
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

@@ -1,9 +1,11 @@
 
+import DAO.VehicleDAO;
 import controller.CustomerController;
 import controller.EmployeeController;
 import controller.RentalController;
 import controller.VehicleController;
 
+import java.math.BigDecimal;
 import java.util.Scanner;
 
 
@@ -22,7 +24,7 @@ public class Main {
 //        rentalController.printAllRentals();
 //        customerController.retrievesDataToInsertNewCustomer(sc);
 //        customerController.getCustomerIdToRemove(sc);
-//        employeeController.retrievesDataToInsertNewEmployee(sc);
+        employeeController.retrievesDataToInsertNewEmployee(sc);
 //        employeeController.getEmployeeIdToRemove(sc);
 //        customerController.getDataToEditCustomer(sc);
 //        employeeController.getDataToEditEmployee(sc);

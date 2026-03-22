@@ -2,6 +2,7 @@ package controller;
 
 import DAO.CustomerDAO;
 import Entities.Customer;
+import service.CustomerService;
 
 import java.time.LocalDate;
 
@@ -10,6 +11,10 @@ import java.util.Scanner;
 
 public class CustomerController {
     CustomerDAO dao = new CustomerDAO();
+    CustomerService customerService = new CustomerService();
+
+
+
     public void printAllCustomers() {
 
 
@@ -26,6 +31,7 @@ public class CustomerController {
             String name = sc.nextLine();
             System.out.println("Enter CPF: ");
             String cpf = sc.nextLine();
+            customerService.validateCpf(cpf);
             System.out.println("Enter RG: ");
             String rg = sc.nextLine();
             System.out.println("Enter date of birth (yyyy-mm-dd): ");
@@ -41,6 +47,9 @@ public class CustomerController {
             String telefone = sc.nextLine();
 
             dao.addNewCustomer(name, cpf, rg, dateOfBirth, address, cep, email, telefone);
+
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

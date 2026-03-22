@@ -2,6 +2,7 @@ package DAO;
 
 import Entities.Rental;
 import db.DB;
+import service.RentalService;
 
 import java.math.BigDecimal;
 import java.sql.*;
@@ -10,6 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RentalDAO {
+    RentalService service = new RentalService();
+
     public List<Rental> findAllRentals() {
         List<Rental> rentals = new ArrayList<>();
 
@@ -45,6 +48,8 @@ public class RentalDAO {
         try (Connection conn = DB.getConnection();
             PreparedStatement st = conn.prepareStatement(sql)) {
 
+            service.validateDates(dateOfCollect, dateOfReturn);
+
             st.setString(1, customerId);
             st.setString(2, employeeId);
             st.setString(3, vehicleId);
@@ -57,8 +62,9 @@ public class RentalDAO {
             if (rowsAffected > 0) {
                 System.out.println("New contract successfully added !");
             }
-        }
-        catch (SQLException e) {
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }

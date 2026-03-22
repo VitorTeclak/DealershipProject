@@ -100,4 +100,26 @@ public class VehicleDAO {
             throw new RuntimeException(e);
         }
     }
+    public BigDecimal getVehicleValue (String vehicleId) {
+        String sql = "SELECT value FROM vehicle WHERE vehicle_id = ?";
+
+        try (Connection conn = DB.getConnection();
+             PreparedStatement st = conn.prepareStatement(sql)) {
+
+            st.setString(1, vehicleId);
+
+            try (ResultSet rs = st.executeQuery()) {
+
+                if (rs.next()) {
+                    return rs.getBigDecimal("value");
+                } else {
+                    throw new RuntimeException("Vehicle not found");
+                }
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
+

@@ -6,9 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class CustomerService {
+public class EmployeeService {
     public void validateCpf(String cpf) {
-        String sql = "SELECT 1 FROM customer WHERE cpf = ?";
+        String sql = "SELECT 1 FROM employee WHERE cpf = ?";
 
         try (Connection conn = DB.getConnection();
              PreparedStatement st = conn.prepareStatement(sql)) {
@@ -27,6 +27,3 @@ public class CustomerService {
     }
 
 }
-
-
-

@@ -1,7 +1,9 @@
 package controller;
 
 import DAO.RentalDAO;
+import DAO.VehicleDAO;
 import Entities.Rental;
+import service.RentalService;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -11,9 +13,11 @@ import java.util.Scanner;
 
 public class RentalController {
     RentalDAO dao = new RentalDAO();
+    RentalService rentalService = new RentalService();
     CustomerController customerController = new CustomerController();
     EmployeeController employeeController = new EmployeeController();
     VehicleController vehicleController = new VehicleController();
+    VehicleDAO vehicleDAO = new VehicleDAO();
     public void printAllRentals() {
         List<Rental> rentals = dao.findAllRentals();
 
@@ -38,9 +42,9 @@ public class RentalController {
             System.out.println("Enter date of return (yyyy-MM-dd): ");
             date = sc.nextLine();
             LocalDate dateOfReturn = LocalDate.parse(date);
-            System.out.println("Enter the rental price: ");
-            BigDecimal price = sc.nextBigDecimal();
-
+            BigDecimal price = vehicleDAO.getVehicleValue(vehicleId);
+            long totalDays = rentalService.countRentalDays(dateOfCollect, dateOfReturn);
+            price = rentalService.calculateTheRentalValue(totalDays, price);
             dao.addNewRental(customerId, employeeId, vehicleId, dateOfCollect, dateOfReturn, price);
         } catch (Exception e) {
             throw new RuntimeException(e);
