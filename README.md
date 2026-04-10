@@ -21,11 +21,11 @@
 </ul>
 <p>🧠 Arquitetura e conceitos aplicados</p>
 <ul>
-<li>Separação de responsabilidades (camadas)</li>
-<li>Organização do código para facilitar manutenção</li>
-<li>Modelagem de entidades do domínio (veículos, clientes, etc.)</li>
-<li>Integração entre aplicação e banco de dados</li>
-<li>Estruturação de operações de persistência (CRUD)</li>
+  <li>Separação de responsabilidades (camadas)</li>
+  <li>Organização do código para facilitar manutenção</li>
+  <li>Modelagem de entidades do domínio (veículos, clientes, etc.)</li>
+  <li>Integração entre aplicação e banco de dados</li>
+  <li>Estruturação de operações de persistência (CRUD)</li>
 </ul>
 <p>🎯 Objetivo</p>
 
