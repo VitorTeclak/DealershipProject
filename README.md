@@ -1,15 +1,17 @@
-🚗 Dealership Project
-📖 Sobre o projeto
+<p>🚗 Dealership Project </p>
+<p>📖 Sobre o projeto</p>
 
-O Dealership Project é um sistema desenvolvido em Java com integração a banco de dados relacional, com o objetivo de simular o gerenciamento de uma concessionária de veículos.
+<h3>O Dealership Project é um sistema desenvolvido em Java com integração a banco de dados relacional, com o objetivo de simular o gerenciamento de uma concessionária de veículos.</h3>
 
-A aplicação foi construída com foco na prática de conceitos fundamentais de backend, incluindo persistência de dados, organização em camadas e aplicação de boas práticas de desenvolvimento.
+<p>A aplicação foi construída com foco na prática de conceitos fundamentais de backend, incluindo persistência de dados, organização em camadas e aplicação de boas práticas de desenvolvimento.</p>
 
-⚙️ Funcionalidades
-Cadastro e gerenciamento de veículos
-Cadastro e gerenciamento de clientes
-Persistência de dados em banco de dados
-Operações de consulta, inserção, atualização e remoção (CRUD)
+<ul>
+  <p>⚙️ Funcionalidades</p>
+<li>Cadastro e gerenciamento de veículos</li>
+<li>Cadastro e gerenciamento de clientes</li>
+<li>Persistência de dados em banco de dados</li>
+<li>Operações de consulta, inserção, atualização e remoção (CRUD)</li>
+</ul>
 💻 Tecnologias utilizadas
 Java
 JDBC (Java Database Connectivity)
